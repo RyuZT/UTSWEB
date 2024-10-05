@@ -8,7 +8,9 @@
 </head>
 <body>
     <h1>OVENT</h1>
-    <a href="form_sarjana.php">Register As Admin</a>
-    <a href="form_magister.php">Register As Admin</a>
+    <a href="form_login_user.php"> Login As User</a>
+    <a href="form_login_admin.php">Login As Admin</a><br>
+    <a href="form_register_admin.php">Register As Admin</a>
+    <a href="form_register_user.php">Register As User</a>
 </body>
 </html>
