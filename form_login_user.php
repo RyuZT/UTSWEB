@@ -17,17 +17,16 @@ session_start();
             unset($_SESSION['error']); // Clear the error message after displaying it
         }
         ?>
-        <form action="proses_register_admin.php" method="post">
+        
+        <form action="proses_login_user.php" method="post">
             <label for="username">Username</label><br>
             <input type="text" name="username" required/><br />
             <label for="email">Email</label><br>
             <input type="email" name="email" required/><br />
             <label for="password">Password</label><br>
-            <input type="password" name="password" /><br />
-            <input type="submit" value="Register" /> 
+            <input type="password" name="password" required/><br />
+            <button type="button" onclick="window.location.href='index.php'">Login</button>
         </form>
-
-  
     </div>
 </body>
 </html>

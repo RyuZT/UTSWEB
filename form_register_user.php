@@ -10,94 +10,44 @@ $firstnameErr = $lastnameErr = $usernameErr = $emailErr = $passwordErr = $confir
 $firstname = $lastname = $username = $email = $password = $confirmPassword = "";
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    require_once "config.php"; // Include config for database connection
+
+    $firstname = test_input($_POST["firstname"]);
+    $lastname = test_input($_POST["lastname"]);
+    $username = test_input($_POST["username"]);
+    $email = test_input($_POST["email"]);
+    $password = test_input($_POST["password"]);
+    $confirmPassword = test_input($_POST["confirm_password"]);
+
     $valid = true;
 
-    // Validasi input
-    if (empty($_POST["firstname"])) {
-        $firstnameErr = "First name is required";
+    if ($password !== $confirmPassword) {
+        $confirmPasswordErr = "Passwords do not match";
         $valid = false;
-    } else {
-        $firstname = test_input($_POST["firstname"]);
     }
 
-    if (empty($_POST["lastname"])) {
-        $lastnameErr = "Last name is required";
-        $valid = false;
-    } else {
-        $lastname = test_input($_POST["lastname"]);
-    }
-
-    if (empty($_POST["username"])) {
-        $usernameErr = "Username is required";
-        $valid = false;
-    } else {
-        $username = test_input($_POST["username"]);
-    }
-
-    if (empty($_POST["email"])) {
-        $emailErr = "Email is required";
-        $valid = false;
-    } else {
-        $email = test_input($_POST["email"]);
-        if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-            $emailErr = "Invalid email format";
-            $valid = false;
-        }
-    }
-
-    if (empty($_POST["password"])) {
-        $passwordErr = "Password is required";
-        $valid = false;
-    } else {
-        $password = test_input($_POST["password"]);
-    }
-
-    if (empty($_POST["confirm_password"])) {
-        $confirmPasswordErr = "Please confirm your password";
-        $valid = false;
-    } else {
-        $confirmPassword = test_input($_POST["confirm_password"]);
-        if ($password !== $confirmPassword) {
-            $confirmPasswordErr = "Passwords do not match";
-            $valid = false;
-        }
-    }
-
-    // Jika validasi berhasil
     if ($valid) {
         // Hash password
         $hashed_password = password_hash($password, PASSWORD_DEFAULT);
 
-        // Masukkan data ke database
-        require_once "proses_register_user.php";
+        // Prepare SQL query using mysqli
+        $sql = "INSERT INTO users (firstname, lastname, username, email, password) VALUES (?, ?, ?, ?, ?)";
+        $stmt = mysqli_prepare($conn, $sql);
 
-        try {
-            $sql = "INSERT INTO users (firstname, lastname, username, email, password) VALUES (:firstname, :lastname, :username, :email, :password)";
-            $stmt = $pdo->prepare($sql);
+        // Bind parameters and execute the statement
+        mysqli_stmt_bind_param($stmt, "sssss", $firstname, $lastname, $username, $email, $hashed_password);
 
-            // Bind parameters
-            $stmt->bindParam(':firstname', $firstname);
-            $stmt->bindParam(':lastname', $lastname);
-            $stmt->bindParam(':username', $username);
-            $stmt->bindParam(':email', $email);
-            $stmt->bindParam(':password', $hashed_password);
-
-            // Execute statement
-            if ($stmt->execute()) {
-                echo "Registration successful!";
-            } else {
-                echo "Something went wrong. Please try again later.";
-            }
-        } catch (PDOException $e) {
-            echo "Error: " . $e->getMessage();
+        if (mysqli_stmt_execute($stmt)) {
+            echo "Registration successful!";
+        } else {
+            echo "Something went wrong. Please try again later.";
         }
 
-        // Tutup koneksi
-        $pdo = null;
+        // Close the statement and connection
+        mysqli_stmt_close($stmt);
+        mysqli_close($conn);
     }
 }
-
- 
 
 function test_input($data) {
     $data = trim($data);
@@ -109,27 +59,27 @@ function test_input($data) {
 
 <h2>Register</h2>
 <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
-    First Name: <input type="text" name="firstname" value="<?php echo $firstname;?>">
+    First Name: <input type="text" name="firstname" required value="<?php echo $firstname;?>">
     <span><?php echo $firstnameErr;?></span>
     <br><br>
 
-    Last Name: <input type="text" name="lastname" value="<?php echo $lastname;?>">
+    Last Name: <input type="text" name="lastname" required value="<?php echo $lastname;?>">
     <span><?php echo $lastnameErr;?></span>
     <br><br>
 
-    Username: <input type="text" name="username" value="<?php echo $username;?>">
+    Username: <input type="text" name="username" required value="<?php echo $username;?>">
     <span><?php echo $usernameErr;?></span>
     <br><br>
 
-    Email: <input type="text" name="email" value="<?php echo $email;?>">
+    Email: <input type="email" name="email" required value="<?php echo $email;?>">
     <span><?php echo $emailErr;?></span>
     <br><br>
 
-    Password: <input type="password" name="password">
+    Password: <input type="password" name="password" required>
     <span><?php echo $passwordErr;?></span>
     <br><br>
 
-    Confirm Password: <input type="password" name="confirm_password">
+    Confirm Password: <input type="password" name="confirm_password" required>
     <span><?php echo $confirmPasswordErr;?></span>
     <br><br>
 
