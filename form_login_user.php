@@ -1,5 +1,5 @@
 <?php
-session_start(); // Make sure this is at the top of the file
+session_start(); 
 ?>
 
 <!DOCTYPE html>
@@ -11,7 +11,6 @@ session_start(); // Make sure this is at the top of the file
     <div class="container">
         <h1>OVENT</h1>
 
-        <!-- Display error messages if they exist -->
         <?php
         if (isset($_SESSION['error'])) {
             echo '<div style="color: red;">' . $_SESSION['error'] . '</div>';
