@@ -20,9 +20,9 @@ session_start(); // Make sure this is at the top of the file
         ?>
         <form action="proses_register_admin.php" method="post">
             <label for="username">Username</label><br>
-            <input type="text" name="username" /><br />
+            <input type="text" name="username" required/><br />
             <label for="email">Email</label><br>
-            <input type="email" name="email" /><br />
+            <input type="email" name="email" required/><br />
             <label for="password">Password</label><br>
             <input type="password" name="password" /><br />
             <input type="submit" value="Register" /> 
