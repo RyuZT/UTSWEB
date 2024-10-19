@@ -1,0 +1,392 @@
+/*================== Font ==================*/
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap');
+/*================== All ==================*/
+*{
+  margin: 0;
+  padding: 0;
+}
+/* ================================================================= Mobile */
+body{
+  background: #4A4947 ;
+  width: auto;
+  background-size: cover;
+  background-position: center;
+  object-fit: cover;
+  z-index: -2;
+  font-family: "Josefin Sans", sans-serif;
+}
+
+.Font_Size{
+  font-size: 13px;
+}
+
+.fontHitam{
+  color: #4A4947;
+}
+
+.fontCokelat{
+  color: #B17457;
+}
+
+.fontPutih{
+  color: #FFFFFF;
+}
+
+.container{
+  height: 100vh;
+}
+
+/*================================ Kiri/Atas */
+.Kiri{
+  width: 100%;
+  height: 20%;
+}
+
+.tabLogin {
+  visibility: hidden;
+}
+
+.tema {
+  visibility: hidden;
+}
+
+.logo {
+  text-align: center;
+  font-size: 40px;
+}
+
+.moto {
+  visibility: hidden;
+}
+
+
+/* ======================= Container ==========================*/
+.Kanan {
+  width: 100%;
+  height: 80%;
+  background: #FAF7F0;
+  z-index: 50;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-top-left-radius: 100px;
+}
+
+.bungkusKanan {
+  height: auto;
+  width: 100%;
+  margin: auto 20%;
+}
+
+/* ================== Title ==================*/
+.titleRegis{
+  margin-bottom: 10%;
+}
+.titleForm{
+  font-size: 35px;
+}
+.descForm{
+  font-size: 13px;
+}
+
+/* ================== Data ==================*/
+.regisName{
+  display: flex;
+  gap: 10px;
+}
+
+.list-data{
+  margin: 10px 0;
+}
+
+/* =========== Input Data */
+.group {
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.input-data {
+  height: 40px;
+  padding: 0 1rem;
+  font-size: 13px;
+  width: 100%;
+  padding-left: 2.5rem;
+  border: transparent;
+  line-height: 100px;
+  border-radius: 3px;
+  outline: none;
+  background-color: #D8D2C2;
+  color: #4A4947;
+  font-family: "Josefin Sans", sans-serif;
+}
+
+.input-nama {
+  height: 40px;
+  padding: 0 1rem;
+  font-size: 13px;
+  width: 100%;
+  border: transparent;
+  border-radius: 3px;
+  outline: none;
+  background-color: #D8D2C2;
+  color: #4A4947;
+  font-family: "Josefin Sans", sans-serif;
+}
+
+.icon {
+  position: absolute;
+  left: 1rem;
+  width: 1rem;
+  height: 1rem;
+  color: #4A4947;
+}
+
+.buttonRegis{
+  width: 100%;
+  background-color: #B17457;
+  color: white;
+  border: transparent;
+  border-radius: 50px;
+  outline: none;
+  font-size: 14px;
+  font-family: "Josefin Sans", sans-serif;
+  padding: 10px;
+  font-weight: 400;
+  margin: 10px 0;
+  cursor: pointer;
+}
+
+.info{
+  text-align: center;
+}
+
+.info a {
+  color: #B17457;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ================================================================Dekstop */
+@media (min-width: 768px) {
+  body{
+    background:url(Asset/LadangRumput.jpg) ;
+    width: auto;
+    background-size: cover;
+    background-position: center;
+    object-fit: cover;
+    z-index: -2;
+    font-family: "Josefin Sans", sans-serif;
+  }
+  
+  .overlay{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: black; 
+    opacity: 50%;
+    z-index: -1;
+  }
+  
+  /*================== Container ==================*/
+  .container{
+    display: flex;
+    height: 100vh;
+  }
+  
+  .fontHitam{
+    color: #4A4947;
+  }
+  
+  .fontCokelat{
+    color: #B17457;
+  }
+  
+  .fontPutih{
+    color: #FFFFFF;
+  }
+
+  .Font_Size{
+    font-size: 16px;
+  }
+  /*================== Bagian Kanan ==================*/
+  
+  .Kanan {
+    width: 35%;
+    height: 100vh;
+    background: #FAF7F0;
+    z-index: 50;
+    border-top-left-radius: 10%;
+    border-bottom-left-radius: 10%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .bungkusKanan {
+    height: auto;
+    width: 100%;
+    margin: auto 20%;
+  }
+  
+  /* ================== Title ==================*/
+  .titleRegis{
+    margin-bottom: 10%;
+  }
+  .titleForm{
+    font-size: 50px;
+  }
+  .descForm{
+    font-size: 16px;
+  }
+  
+  /* ================== Data ==================*/
+  .regisName{
+    display: flex;
+    gap: 10px;
+  }
+  
+  .list-data{
+    margin: 10px 0;
+  }
+  
+  /* =========== Input Data */
+  .group {
+    display: flex;
+    align-items: center;
+    position: relative;
+  }
+  
+  .input-data {
+    height: 40px;
+    padding: 0 1rem;
+    font-size: 16px;
+    width: 100%;
+    padding-left: 2.5rem;
+    border: transparent;
+    line-height: 100px;
+    border-radius: 3px;
+    outline: none;
+    background-color: #D8D2C2;
+    color: #4A4947;
+    font-family: "Josefin Sans", sans-serif;
+  }
+  
+  .input-nama {
+    height: 40px;
+    padding: 0 1rem;
+    font-size: 16px;
+    width: 100%;
+    border: transparent;
+    border-radius: 3px;
+    outline: none;
+    background-color: #D8D2C2;
+    color: #4A4947;
+    font-family: "Josefin Sans", sans-serif;
+  }
+  
+  .icon {
+    position: absolute;
+    left: 1rem;
+    width: 1rem;
+    height: 1rem;
+    color: #4A4947;
+  }
+  
+  .buttonRegis{
+    width: 100%;
+    background-color: #B17457;
+    color: white;
+    border: transparent;
+    border-radius: 50px;
+    outline: none;
+    font-size: 18px;
+    font-family: "Josefin Sans", sans-serif;
+    padding: 10px;
+    font-weight: 400;
+    margin: 10px 0;
+    cursor: pointer;
+  }
+  
+  .info{
+    text-align: center;
+  }
+  
+  .info a {
+    color: #B17457;
+  }
+  
+  /*================== Bagian Kiri ==================*/
+  
+  .Kiri {
+    width: 65%;
+    height: 100vh;
+    visibility: visible;
+  }
+  
+  .bungkusKiri {
+    position: relative;
+    height: 100%;
+  }
+  
+  .tabLogin {
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 25px;
+    width: 10%;
+    text-align: center;
+    border-radius: 50px;
+    color: #4A4947;
+    background-color: #FAF7F0;
+    padding: 13px;
+    text-decoration: none;
+    visibility: visible;
+  }
+  
+  .tema {
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 30px;
+    font-size: 18px;
+    visibility: visible;
+  }
+  
+  .logo {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    padding: 30px;
+    font-size: 40px;
+  }
+  
+  .moto {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    padding: 30px;
+    font-size: 18px;
+    visibility: visible;
+  }
+}
