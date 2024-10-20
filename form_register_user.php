@@ -59,7 +59,7 @@ function test_input($data) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Register</title>
-    <link rel="stylesheet" href="user_regis.css">
+    <link rel="stylesheet" href="user_relog.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
@@ -90,7 +90,7 @@ function test_input($data) {
         <!-- Bagian Kanan -->
         <div class="Kanan">
             <div class="bungkusKanan">
-                <div class="titleRegis">
+                <div class="titleRelog">
                     <p class="titleForm">
                         <span class="fontHitam">Create New<br>Account</span><span class="fontCokelat">.</span>
                     </p>
@@ -102,7 +102,7 @@ function test_input($data) {
                 <!-- Formulir -->
                 <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
                     <!-- Name -->
-                    <div class="regisName list-data">
+                    <div class="relogName list-data">
                         <div>
                             <span class="fontHitam Font_Size">First Name<br></span>
                             <div class="group">                                
@@ -156,7 +156,7 @@ function test_input($data) {
                             <input class="input-data" type="password" name="confirm_password" required>
                         </div>                       
                     </div>
-                    <input class="buttonRegis" type="submit" value="Create Account">
+                    <input class="buttonRelog" type="submit" value="Create Account">
                 </form>
                 <p class="info Font_Size">
                     <span>Alredy have an account? </span><span><a href="form_login_user.php">Sign In</a></span>

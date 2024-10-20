@@ -79,7 +79,7 @@ body{
 }
 
 /* ================== Title ==================*/
-.titleRegis{
+.titleRelog{
   margin-bottom: 10%;
 }
 .titleForm{
@@ -90,7 +90,7 @@ body{
 }
 
 /* ================== Data ==================*/
-.regisName{
+.relogName{
   display: flex;
   gap: 10px;
 }
@@ -142,7 +142,7 @@ body{
   color: #4A4947;
 }
 
-.buttonRegis{
+.buttonRelog{
   width: 100%;
   background-color: #B17457;
   color: white;
@@ -164,23 +164,6 @@ body{
 .info a {
   color: #B17457;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -250,7 +233,7 @@ body{
   }
   
   /* ================== Title ==================*/
-  .titleRegis{
+  .titleRelog{
     margin-bottom: 10%;
   }
   .titleForm{
@@ -261,7 +244,7 @@ body{
   }
   
   /* ================== Data ==================*/
-  .regisName{
+  .relogName{
     display: flex;
     gap: 10px;
   }
@@ -313,7 +296,7 @@ body{
     color: #4A4947;
   }
   
-  .buttonRegis{
+  .buttonRelog{
     width: 100%;
     background-color: #B17457;
     color: white;
@@ -371,6 +354,7 @@ body{
     padding: 30px;
     font-size: 18px;
     visibility: visible;
+    user-select: none;
   }
   
   .logo {
