@@ -72,7 +72,7 @@ function test_input($data) {
         <!-- Bagian Kiri -->
         <div class="Kiri">
             <div class="bungkusKiri">                
-                <a href="form_login_user.php" class="tabLogin">
+                <a href="index.php" class="tabLogin">
                     Sign In
                 </a>
                 <p class="tema fontPutih">
@@ -159,7 +159,7 @@ function test_input($data) {
                     <input class="buttonRelog" type="submit" value="Create Account">
                 </form>
                 <p class="info Font_Size">
-                    <span>Alredy have an account? </span><span><a href="form_login_user.php">Sign In</a></span>
+                    <span>Already have an account? </span><span><a href="index.php">Sign In</a></span>
                 </p>
             </div>
         </div>
