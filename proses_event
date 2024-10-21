@@ -1,0 +1,56 @@
+<?php
+// Memastikan file banner yang di-upload benar
+$filename = $_FILES['banner']['name'];
+$temp_file = $_FILES['banner']['tmp_name'];
+
+$file_ext = strtolower(pathinfo($filename, PATHINFO_EXTENSION));
+
+// Tentukan folder upload
+$upload_dir = "uploads/";
+
+// Validasi tipe file gambar
+$allowed_extensions = ['jpg', 'jpeg', 'png', 'svg', 'webp', 'bmp', 'gif'];
+if (in_array($file_ext, $allowed_extensions)) {
+    // Pindahkan file yang di-upload ke folder tujuan
+    move_uploaded_file($temp_file, $upload_dir . $filename);
+
+    // Ambil data dari form input
+    $event_name = $_POST['event_name'];
+    $event_date = $_POST['event_date'];
+    $event_time = $_POST['event_time'];
+    $location = $_POST['location'];
+    $description = $_POST['description'];
+    $max_participant = $_POST['max_participant'];
+    $banner = $filename;
+
+    // Koneksi ke database
+    $dsn = "mysql:host=localhost;dbname=uts_group_5";
+    $kunci = new PDO($dsn, "root", "");
+
+    // Query untuk memasukkan data
+    $sql = "INSERT INTO msevent_detail (event_name, event_date, event_time, location, description, max_participant, image) 
+            VALUES (?, ?, ?, ?, ?, ?, ?)";
+
+    // Eksekusi query
+    $stmt = $kunci->prepare($sql);
+    $data = [$event_name, $event_date, $event_time, $location, $description, $max_participant, $banner];
+    $stmt->execute($data);
+
+    // Tampilkan pesan sukses
+    echo "<div class='container mt-5'>";
+    echo "<h2>Event Berhasil Ditambahkan</h2>";
+    echo "<p><strong>Nama Event: </strong>{$event_name}</p>";
+    echo "<p><strong>Tanggal: </strong>{$event_date}</p>";
+    echo "<p><strong>Waktu: </strong>{$event_time}</p>";
+    echo "<p><strong>Lokasi: </strong>{$location}</p>";
+    echo "<p><strong>Deskripsi: </strong>{$description}</p>";
+    echo "<p><strong>Max Participant: </strong>{$max_participant}</p>";
+    echo "<p><strong>Banner: </strong><br><img src='{$upload_dir}{$banner}' width='200'></p>";
+
+    // Tombol kembali
+    echo "<a href='index.php' class='btn btn-primary mt-3'>Kembali ke Daftar Event</a>";
+    echo "</div>";
+} else {
+    echo "Anda hanya bisa meng-upload file gambar.";
+}
+?>
